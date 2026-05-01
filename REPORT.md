@@ -3,7 +3,8 @@
 **Student ID:** F23-0620  
 **Course:** Artificial Intelligence  
 **Date:** 2026-05-01  
-**GitHub Repository:** https://github.com/sjd-1214/AI_A06_F23-0620.git
+**GitHub Repository:** https://github.com/sjd-1214/AI_A06_F23-0620.git  
+**Live Demo:** https://ai-a06-f23-0620.vercel.app/
 
 ---
 
@@ -698,13 +699,5 @@ This project successfully implements a Knowledge-Based Agent using Propositional
 The implementation follows AI textbook principles (Russell & Norvig) for logic-based agents and provides an educational tool for understanding automated reasoning in the Wumpus World domain.
 
 ---
-
-## 10. References
-
-- Russell, S., & Norvig, P. (2020). *Artificial Intelligence: A Modern Approach* (4th ed.)
-- Flask Documentation: https://flask.palletsprojects.com/
-- Propositional Logic & Resolution: AI Course Materials
-
----
-
 **End of Report**
+---
