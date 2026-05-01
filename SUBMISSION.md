@@ -2,7 +2,8 @@
 
 **Student ID:** F23-0620  
 **Assignment:** Dynamic Wumpus Logic Agent (Web App)  
-**Date:** May 1, 2026
+**Date:** May 1, 2026  
+**GitHub Repository:** https://github.com/sjd-1214/AI_A06_F23-0620.git
 
 ---
 

@@ -2,7 +2,8 @@
 
 **Student ID:** F23-0620  
 **Course:** Artificial Intelligence  
-**Date:** 2026-05-01
+**Date:** 2026-05-01  
+**GitHub Repository:** https://github.com/sjd-1214/AI_A06_F23-0620.git
 
 ---
 

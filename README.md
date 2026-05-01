@@ -1,5 +1,7 @@
 # Dynamic Wumpus Logic Agent
 
+**GitHub Repository:** https://github.com/sjd-1214/AI_A06_F23-0620.git
+
 A web-based knowledge-based agent that navigates a Wumpus World grid using Propositional Logic and Resolution Refutation.
 
 ## Project Overview
