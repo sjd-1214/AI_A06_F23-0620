@@ -1,5 +1,3 @@
-// Client-side JavaScript for Wumpus Logic Agent
-
 let gameState = null;
 let autoRunning = false;
 let autoInterval = null;
@@ -51,7 +49,6 @@ async function step() {
         loadKB();
         updatePercepts(data.current_percepts);
 
-        // Check the cell for safety demonstration
         if (data.current_percepts && data.current_percepts.position) {
             await checkSafe(data.current_percepts.position[0], data.current_percepts.position[1]);
         }
@@ -155,30 +152,25 @@ function drawGrid(data) {
     const visited = data.visited || [];
     const world = data.world;
 
-    // Draw cells
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
             const x = c * cellSize;
             const y = r * cellSize;
 
-            // Determine cell color
-            let color = '#adb5bd'; // unknown (gray)
+            let color = '#adb5bd';
 
-            // Check if safe
             if (safeCells.some(cell => cell[0] === r && cell[1] === c)) {
-                color = '#28a745'; // safe (green)
+                color = '#28a745';
             }
 
-            // Check if agent position
             if (agentPos[0] === r && agentPos[1] === c) {
-                color = '#ffc107'; // agent (yellow)
+                color = '#ffc107';
             }
 
-            // Draw actual dangers (for demonstration - normally hidden)
             if (world && world.pits) {
                 if (world.pits.some(pit => pit[0] === r && pit[1] === c)) {
                     if (visited.some(v => v[0] === r && v[1] === c)) {
-                        color = '#dc3545'; // danger (red)
+                        color = '#dc3545';
                     }
                 }
             }
@@ -186,26 +178,22 @@ function drawGrid(data) {
             if (world && world.wumpus) {
                 if (world.wumpus[0] === r && world.wumpus[1] === c) {
                     if (visited.some(v => v[0] === r && v[1] === c)) {
-                        color = '#dc3545'; // danger (red)
+                        color = '#dc3545';
                     }
                 }
             }
 
-            // Draw cell
             ctx.fillStyle = color;
             ctx.fillRect(x, y, cellSize, cellSize);
 
-            // Draw border
             ctx.strokeStyle = '#495057';
             ctx.lineWidth = 2;
             ctx.strokeRect(x, y, cellSize, cellSize);
 
-            // Draw coordinates
             ctx.fillStyle = '#000';
             ctx.font = `${cellSize * 0.2}px Arial`;
             ctx.fillText(`${r},${c}`, x + 5, y + 15);
 
-            // Draw agent marker
             if (agentPos[0] === r && agentPos[1] === c) {
                 ctx.fillStyle = '#000';
                 ctx.font = `${cellSize * 0.4}px Arial`;
@@ -219,7 +207,6 @@ function drawGrid(data) {
     }
 }
 
-// Initialize
 window.addEventListener('load', () => {
     ctx.fillStyle = '#f8f9fa';
     ctx.fillRect(0, 0, canvas.width, canvas.height);

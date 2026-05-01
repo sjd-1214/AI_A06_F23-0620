@@ -1,15 +1,9 @@
-"""
-Flask Web Application for Dynamic Wumpus Logic Agent
-Student ID: F23-0620
-"""
-
 from flask import Flask, render_template, jsonify, request
 from wumpus_world import WumpusWorld
 from wumpus_agent import WumpusAgent
 
 app = Flask(__name__)
 
-# Global game state
 game = None
 agent = None
 steps_taken = 0
@@ -26,12 +20,10 @@ def new_game():
     rows = int(data.get('rows', 4))
     cols = int(data.get('cols', 4))
 
-    # Create new world and agent
     game = WumpusWorld(rows, cols)
     agent = WumpusAgent(rows, cols)
     steps_taken = 0
 
-    # Tell agent about starting position
     breeze, stench = game.get_percepts(0, 0)
     agent.tell(0, 0, breeze, stench)
 
@@ -60,7 +52,6 @@ def step():
     if game.game_over:
         return jsonify({'success': False, 'error': 'Game over'})
 
-    # Find safe unvisited cells
     safe_cells = agent.find_safe_unvisited()
 
     if not safe_cells:
@@ -70,11 +61,9 @@ def step():
             'message': 'No more safe cells to explore'
         })
 
-    # Move to first safe cell (simple strategy)
     next_cell = safe_cells[0]
     steps_taken += 1
 
-    # Move agent
     success = game.move_agent(*next_cell)
 
     if not success:
@@ -84,7 +73,6 @@ def step():
             'message': 'Agent died!'
         })
 
-    # Get percepts and tell agent
     breeze, stench = game.get_percepts(*next_cell)
     agent.tell(*next_cell, breeze, stench)
     agent.position = next_cell

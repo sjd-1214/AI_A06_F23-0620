@@ -1,6 +1,4 @@
 #!/bin/bash
-# Run script for Dynamic Wumpus Logic Agent
-# Student ID: F23-0620
 
 echo "================================"
 echo "Dynamic Wumpus Logic Agent"
