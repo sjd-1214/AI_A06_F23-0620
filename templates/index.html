@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Wumpus Logic Agent - F23-0620</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dynamic Wumpus Logic Agent</h1>
+            <p class="subtitle">Knowledge-Based Agent using Propositional Logic & Resolution Refutation</p>
+            <p class="student-id">Student ID: F23-0620</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="rows">Rows:</label>
+                <input type="number" id="rows" min="3" max="10" value="4">
+
+                <label for="cols">Columns:</label>
+                <input type="number" id="cols" min="3" max="10" value="4">
+
+                <button id="newGame" onclick="newGame()">New Episode</button>
+                <button id="stepBtn" onclick="step()" disabled>Step</button>
+                <button id="autoBtn" onclick="autoRun()" disabled>Auto Run</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="grid-container">
+                    <canvas id="gridCanvas" width="400" height="400"></canvas>
+                </div>
+
+                <div class="metrics">
+                    <h3>Metrics</h3>
+                    <div class="metric-item">
+                        <span>Steps Taken:</span>
+                        <span id="steps">0</span>
+                    </div>
+                    <div class="metric-item">
+                        <span>Percepts Received:</span>
+                        <span id="percepts">0</span>
+                    </div>
+                    <div class="metric-item">
+                        <span>KB Rules:</span>
+                        <span id="kbSize">0</span>
+                    </div>
+                    <div class="metric-item">
+                        <span>Safe Cells Found:</span>
+                        <span id="safeCells">0</span>
+                    </div>
+                </div>
+
+                <div class="legend">
+                    <h3>Legend</h3>
+                    <div class="legend-item">
+                        <div class="legend-box safe"></div>
+                        <span>Safe (Confirmed)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box unknown"></div>
+                        <span>Unknown/Unvisited</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box danger"></div>
+                        <span>Danger (Pit/Wumpus)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box agent"></div>
+                        <span>Agent Position</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="kb-display">
+                    <h3>Knowledge Base (Propositional Logic)</h3>
+                    <div id="kbContent" class="kb-content">
+                        <p class="placeholder">Knowledge base will appear here after starting...</p>
+                    </div>
+                </div>
+
+                <div class="percepts-display">
+                    <h3>Current Percepts</h3>
+                    <div id="perceptsContent" class="percepts-content">
+                        <p class="placeholder">No percepts yet</p>
+                    </div>
+                </div>
+
+                <div class="resolution-display">
+                    <h3>Resolution Steps (Last Query)</h3>
+                    <div id="resolutionContent" class="resolution-content">
+                        <p class="placeholder">Resolution steps will appear here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
