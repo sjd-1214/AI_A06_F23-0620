@@ -20,9 +20,22 @@ This application implements an intelligent agent that:
 
 ## How to Run
 
-1. Open `index.html` in a web browser
-2. Configure grid size and start a new episode
-3. Watch the agent reason about safe cells using logic
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Run the Flask application:
+   ```bash
+   python app.py
+   ```
+
+3. Open your browser and navigate to:
+   ```
+   http://localhost:5000
+   ```
+
+4. Configure grid size and click "New Episode" to start
 
 ## Student Information
 
@@ -32,9 +45,10 @@ This application implements an intelligent agent that:
 
 ## Technology Stack
 
-- Vanilla JavaScript (ES6+)
+- Python 3.x
+- Flask (Web framework)
 - HTML5/CSS3
-- No external dependencies for core logic
+- Vanilla JavaScript (ES6+)
 
 ## Project Structure
 
